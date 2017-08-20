@@ -91,6 +91,7 @@ defmodule Mix.Tasks.Luggas.EsIndex do
 
       mapping = %{
         properties: %{
+          timestamp: %{type: "date"}
           update_id: %{type: "text"},
           message: message,
           edited_message: message,
