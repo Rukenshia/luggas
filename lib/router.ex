@@ -13,14 +13,14 @@ defmodule Luggas.Router do
   plug :dispatch
 
   post "/_telegram" do
-    Logger.info "webhook with update #{conn.body_params["update_id"]}"
-
     {:ok, p2} = Elastix.Document.index("http://127.0.0.1:9200", "luggas", "webhook", conn.body_params["update_id"], conn.body_params)
 
     if p2.status_code != 200 && p2.status_code != 201 do
       IO.inspect p2
       send_resp(conn, p2.status_code, Poison.encode!(%{"ok": false}))
     else
+      Logger.info "webhook with update #{conn.body_params["update_id"]} saved"
+
       send_resp(conn, 200, Poison.encode!(%{"ok": true}))
     end
   end
