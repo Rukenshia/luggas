@@ -13,7 +13,7 @@ defmodule Luggas.Router do
   post "/_telegram" do
     {:ok, p2} = Elastix.Document.index("http://127.0.0.1:9200", "luggas", "webhook", conn.body_params["update_id"], conn.body_params)
 
-    if p2.status_code != 200 do
+    if p2.status_code != 200 && p2.status_code != 201 do
       IO.inspect p2
       send_resp(conn, p2.status_code, Poison.encode!(%{"ok": false}))
     else
