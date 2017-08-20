@@ -15,7 +15,7 @@ defmodule Mix.Tasks.Luggas.EsIndex do
       Logger.info "creating mapping for 'webhook'"
       user = %{
         properties: %{
-          id: %{type: "integer"},
+          id: %{type: "long"},
           first_name: %{type: "text"},
           last_name: %{type: "text"},
           username: %{type: "text"},
@@ -25,7 +25,7 @@ defmodule Mix.Tasks.Luggas.EsIndex do
 
       chat = %{
         properties: %{
-          id: %{type: "integer"},
+          id: %{type: "long"},
           type: %{type: "text"},
           title: %{type: "text"},
           username: %{type: "text"},
@@ -37,50 +37,50 @@ defmodule Mix.Tasks.Luggas.EsIndex do
 
       message = %{
         properties: %{
-          message_id: %{type: "integer"},
-          date: %{type: "integer"},
-          forward_from_message_id: %{type: "integer"},
-          forward_date: %{type: "integer"},
+          message_id: %{type: "long"},
+          date: %{type: "long"},
+          forward_from_message_id: %{type: "long"},
+          forward_date: %{type: "long"},
           caption: %{type: "text"},
           new_chat_title: %{type: "text"},
           supergroup_chat_created: %{type: "boolean"},
-          edit_date: %{type: "integer"},
+          edit_date: %{type: "long"},
           text: %{type: "text"},from: user,
           chat: chat,
           forward_from: user,
           forward_from_chat: chat,
           reply_to_message: %{
             properties: %{
-              message_id: %{type: "integer"},
+              message_id: %{type: "long"},
               text: %{type: "text"},
               from: user,
             },
           },
           audio: %{
             properties: %{
-              file_id: %{type: "integer"},
+              file_id: %{type: "long"},
               title: %{type: "text"},
             },
           },
           photo: %{
             properties: %{
-              file_id: %{type: "integer"},
+              file_id: %{type: "long"},
             },
           },
           document: %{
             properties: %{
-              file_id: %{type: "integer"},
+              file_id: %{type: "long"},
               title: %{type: "text"},
             },
           },
           video: %{
             properties: %{
-              file_id: %{type: "integer"},
+              file_id: %{type: "long"},
             },
           },
           video_note: %{
             properties: %{
-              file_id: %{type: "integer"},
+              file_id: %{type: "long"},
             },
           },
           new_chat_members: user,
