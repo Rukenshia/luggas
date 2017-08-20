@@ -13,7 +13,7 @@ defmodule Luggas.Router do
   plug :dispatch
 
   post "/_telegram" do
-    {:ok, p2} = Elastix.Document.index("http://127.0.0.1:9200", "luggas", "webhook", conn.body_params["update_id"], Map.put(conn.body_params, "timestamp", :os.timestamp))
+    {:ok, p2} = Elastix.Document.index("http://127.0.0.1:9200", "luggas", "webhook", conn.body_params["update_id"], Map.put(conn.body_params, "timestamp", :os.system_time(:seconds)))
 
     if p2.status_code != 200 && p2.status_code != 201 do
       IO.inspect p2
