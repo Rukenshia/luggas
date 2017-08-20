@@ -58,29 +58,29 @@ defmodule Mix.Tasks.Luggas.EsIndex do
           },
           audio: %{
             properties: %{
-              file_id: %{type: "string"},
+              file_id: %{type: "text"},
               title: %{type: "text"},
             },
           },
           photo: %{
             properties: %{
-              file_id: %{type: "string"},
+              file_id: %{type: "text"},
             },
           },
           document: %{
             properties: %{
-              file_id: %{type: "string"},
+              file_id: %{type: "text"},
               title: %{type: "text"},
             },
           },
           video: %{
             properties: %{
-              file_id: %{type: "string"},
+              file_id: %{type: "text"},
             },
           },
           video_note: %{
             properties: %{
-              file_id: %{type: "string"},
+              file_id: %{type: "text"},
             },
           },
           new_chat_members: user,
